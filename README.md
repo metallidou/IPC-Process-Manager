@@ -14,11 +14,12 @@ make main
 ## 🚀 Run
 To execute the program, use the following command:
 ```
-./main test_files/<CF1>.txt <M>
+./main <CF1> <TF1> <M>
 ```
 
 Where:
 - `<CF1>` is the configuration file that declares the process actions and their execution timestamps.
+- `<TF1>` is the text file which contains text that child processes read from.
 - `<M>` is the number of semaphores used for synchronizing the processes (limits the number of concurrently active child processes).
 
 
