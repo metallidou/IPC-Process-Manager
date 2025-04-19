@@ -5,13 +5,13 @@ A UNIX-based process manager in C that uses **POSIX semaphores** and **shared me
 It simulates a process management system where a parent process creates and manages child processes, which perform read operations.
 The program is designed to control the spawning, execution and termination of processes using inter-process communication (IPC) mechanisms, such as semaphores and shared memory.
 
-## 🔧 Build
+## Build
 To compile the project, run the following command:
 ```
 make main
 ```
 
-## 🚀 Run
+## Run
 To execute the program, use the following command:
 ```
 ./main <CF> <TF> <M>
@@ -23,7 +23,7 @@ Where:
 - `<M>` is the number of semaphores used for synchronizing the processes (limits the number of concurrently active child processes).
 
 
-## 📝 Example Usage
+## Example Usage
 
 Here’s an example of a config file (CF):
 
@@ -38,7 +38,7 @@ Where:
 - T indicates the terminate command, instructing the parent to terminate a child process.
 - The number represents the timestamp at which the action should occur.
 
-## 🧠 How it Works
+## How it Works
 
 The program uses **Inter-Process Communication (IPC)** to manage the synchronization and execution of parent and child processes.
 
