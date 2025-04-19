@@ -6,15 +6,12 @@
 
 int main(int argc, char** argv) 
 {
-    // Arguments must be: config file (filepath), number of semaphores (M)
-    if (argc < 3) 
+    // Arguments must be: config file (filepath), text file (text_file), number of semaphores (M)
+    if (argc < 4) 
     {
         fprintf(stderr, "You have inserted less arguments than needed\n");
         return 1; 
     }
-
-    // Store text file
-    char* text_file = "test_files/mobydick.txt";
     
     // Store config file
     char* config_file = malloc(strlen(argv[1]) + 1);
@@ -25,8 +22,17 @@ int main(int argc, char** argv)
     }
     strcpy(config_file, argv[1]);
 
+    // Store text file
+    char* text_file = malloc(strlen(argv[2]) + 1);
+    if (!text_file) 
+    {
+        perror("malloc");
+        return 1;
+    }
+    strcpy(text_file, argv[2]);
+
     // Store number of semaphores that can be used
-    int M = atoi(argv[2]);
+    int M = atoi(argv[3]);
 
     // Create config struct pointer to store config file data 
     Config* config = malloc(sizeof(Config));
@@ -46,6 +52,9 @@ int main(int argc, char** argv)
         free(config_file);
         return 1;
     }
+
+    printf("CONFIG %s\n", config_file);
+    printf("TEXT %s\n", text_file);
 
     // Read config file and initialize config and processes 
     read_config(config_file, text_file, config, processes);
